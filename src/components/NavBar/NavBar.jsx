@@ -21,7 +21,9 @@ return (
             <Link className='nav-link' to ='/category/second'>Category 2</Link>
             <Link to= '/'></Link>
             </Nav>
+            <Link to='/cart'>
             <CartWidget />
+            </Link>
         </Navbar.Collapse>
     </Container>
 </Navbar>

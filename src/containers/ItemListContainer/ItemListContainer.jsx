@@ -3,6 +3,10 @@ import { useState, useEffect } from "react"
 import ItemList from "../../components/ItemList/ItemList"
 import { myFech } from "../../Helpers/myFetch"
 import { Spinner } from "react-bootstrap"
+import {collection, getDocs, getFirestore, orderBy, query, where} from "firebase/firestore"
+
+
+
 
 const ItemListContainer = ({greeting}) => { 
     
@@ -13,21 +17,21 @@ const ItemListContainer = ({greeting}) => {
 
 useEffect (()=>{
 
-  if(idCategory){
-    myFech()
-    .then( resp =>  setProducts(resp.filter(products => products.category === idCategory)) ) 
-    .catch( err => console.log( err ) )
-    .finally(()=> setLoading(false))    
+    const db = getFirestore()
 
-  }else{
+    const queryCollection = collection(db,"Products")
 
-    myFech()
-    .then( resp =>  setProducts(resp) ) 
+    const queryFilteredOut=idCategory? query(queryCollection , where("category", "==", idCategory)) :queryCollection
+    
+    
+    getDocs(queryFilteredOut)
+    .then (res => setProducts(res.docs.map(product => ({id: product.id, ...product.data()})))) 
     .catch( err => console.log( err ) )
-    .finally(()=> setLoading(false))    
-  }
+    .finally(()=> setLoading(false)) 
+    
 
 },[idCategory])
+
 
     return (
     <>
