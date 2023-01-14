@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import CartWidget from '../CartWidget/CartWidget';
@@ -13,12 +13,13 @@ const NavBar = () => {
 return (
 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
-        <Link className= "navbar-brand" to ='/'>My Brand</Link>
+        <Link className= "navbar-brand" to ='/'>SWITCH GAMES</Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-            <Link className='nav-link' to ='/category/first'>Category 1 </Link>
-            <Link className='nav-link' to ='/category/second'>Category 2</Link>
+            <Link className='nav-link' to ='/category/exclusive'>Only in Switch</Link>
+            <Link className='nav-link' to ='/category/arcade'>Arcade</Link>
+            <Link className='nav-link' to ='/category/strategy'>Strategy</Link>
             <Link to= '/'></Link>
             </Nav>
             <Link to='/cart'>

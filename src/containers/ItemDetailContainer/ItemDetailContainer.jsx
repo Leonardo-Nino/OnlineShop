@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import { Spinner } from "react-bootstrap"
 
-import { myFech } from "../../Helpers/myFetch"
 
 
 const ItemDetailContainer = () => {

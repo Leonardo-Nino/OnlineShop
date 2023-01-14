@@ -57,16 +57,25 @@ return (
 
     <>
 
-        <div className="mx-3">
-                {cartList.map(product => <li  key= {product.id}>
-                    
-                                        {product.name}- 
-                                        amount = {product.amount}- 
-                                        Price = ${product.price} 
-                                        <button onClick=  { () => eraseItem(product.id)}>X</button>
-                
-                </li>)} 
-                {totalPrice() > 0 && <li>Total Price  = ${totalPrice()} </li>}
+        <div className= " row d-flex justify-content-center  mx-5 my-5 ">
+                {cartList.map(product => 
+                                        <div className=" col justify-content-center gap-2 card w-100 mt-5"  key= {product.id}>
+                                            <div className="card-header">
+                                                {product.name}
+                                            </div>
+                                            <div className="card-body">
+                                                <img src= {product.img} alt={product.name} className='' />
+                                                
+                                                <br />
+                                                Price: ${product.price} <br/>  
+                                                Amount = {product.amount} 
+                                                <button  onClick=  { () => eraseItem(product.id)}> <img src = "\trash3-fill.svg" alt="cart widget"></img></button>
+                                            </div>      
+                                        </div>)} 
+
+                                        <h2 className= "row">
+                                            {totalPrice() > 0 && <div>Total Price  = ${totalPrice()} </div>}
+                                        </h2>
 
         </div>
 
@@ -75,13 +84,19 @@ return (
             <div>
                 {
                     orderId ?
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <h2>Thanks for your purchase</h2>
+                            <h3 > Your order id number :{orderId}</h3>
 
-                        <h2> Your order id number :{orderId}</h2>
+                        </div>
                     :
-                        <Link to='/' >
-                            <h2>No hay Productos</h2>
-                            <button className="d-flex gap-2 mt-2"> Home </button>
-                        </Link>
+                        <div className="d-flex flex-column justify-content-center align-items-center " >
+                            <h2 >The cart is empty</h2>
+                            <Link to='/' >
+                                <button className=" row gap-2 mt-2 "> Home </button>
+                            </Link>
+
+                        </div>
                 }
 
             </div>

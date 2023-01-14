@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import ItemList from "../../components/ItemList/ItemList"
-import { myFech } from "../../Helpers/myFetch"
 import { Spinner } from "react-bootstrap"
-import {collection, getDocs, getFirestore, orderBy, query, where} from "firebase/firestore"
+import {collection, getDocs, getFirestore, query, where} from "firebase/firestore"
 
 
 
@@ -21,7 +20,7 @@ useEffect (()=>{
 
     const queryCollection = collection(db,"Products")
 
-    const queryFilteredOut=idCategory? query(queryCollection , where("category", "==", idCategory)) :queryCollection
+    const queryFilteredOut = idCategory ? query(queryCollection , where("category", "==", idCategory)) : queryCollection
     
     
     getDocs(queryFilteredOut)

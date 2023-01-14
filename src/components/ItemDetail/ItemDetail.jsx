@@ -8,7 +8,7 @@ import Counter from '../Counter/Counter'
 
 const ItemDetail = ({product}) => {
 
-  const {addToCart, cartList}= useCartContext()
+  const {addToCart}= useCartContext()
 
   const [inputType, setInputType] = useState('Counter')
 
@@ -20,18 +20,23 @@ const ItemDetail = ({product}) => {
   
 
   return (  
-    <div className='row'>
-      <div className='col ms-2'>
-        <h2>{product.name}</h2>
-        <h2> Price ${product.price}</h2>
-      </div>  
-      <div className='col'>{
+    <div className= 'row mx-3 d-flex justify-content-center'>
+
+      <div className=   "card w-25 mt-5 'col ms-2'" >
+          <div className="card-header">{product.name} </div> 
+          <div className="card-body">
+            <img src= {product.img} alt={product.name} className='' /><br />
+                        Price: €{product.price}   
+          </div>  
+          <div className='d-flex'>{
                 inputType === 'Counter' ? 
-                    <Counter stock={10} initial={1} onAdd={onAdd} /> 
+                    <Counter  stock={10} initial={1} onAdd={onAdd} /> 
                 : 
-                    <ButtonSwichCart />
+                    <ButtonSwichCart  />
             }
-      </div>
+          </div>                                                                      
+      </div>  
+        
     </div>
   )
 }

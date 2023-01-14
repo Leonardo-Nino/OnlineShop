@@ -23,7 +23,6 @@ const addToCart = (product) => {
             cartList[amountIndex].amount += product.amount
             setCartList([...cartList])
         }
-    //set local storege here    y validacion para que no repita produc
 }
 
 const cleanCart = () =>  setCartList([])

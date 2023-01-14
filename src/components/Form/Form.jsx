@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap"
 
             const Forms = ({purchaseOrder,form,handleOnChange, cleanCart, emailConfirm}) => {
 return (
-    <div className="mx-3"> 
+    <div className="mx-3 my-3"> 
                 
                 <Form onSubmit={purchaseOrder}>
                     <Form.Group className="mb-3 w-50" >
@@ -14,9 +14,9 @@ return (
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" name="email" onChange={handleOnChange}  value={form.email} placeholder="Enter email" required />
                         <Form.Label>Confirm email</Form.Label>
-                        <Form.Control type="email" name="emailConfirme" onChange={handleOnChange}  value={form.emailConfirm} placeholder="Confirn enail" required />
+                        <Form.Control type="email" name="emailConfirme" onChange={handleOnChange}  value={form.emailConfirm} placeholder="Confirm email" required />
                         
-                        {emailConfirm ? <p className='text-danger'>El email debe coincidir</p> : ''}
+                        {emailConfirm ? <p className='text-danger'>The email must be the same</p> : ''}
                     
                     </Form.Group>
                     <button  onClick={cleanCart }> Clean Cart</button>
